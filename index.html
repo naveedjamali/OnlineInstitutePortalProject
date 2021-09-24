@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="aldarApp">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Online Institute Portal</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+
+
+
+    <!-- Optional theme -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/angular-route.js"></script>
+    <script type="text/javascript" src="js/angular-resource.js"></script>
+    <script type="text/javascript" src="js/angular-ui/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="js/angular-ui/ui-bootstrap-tpls.js"></script>
+
+    <script type="text/javascript">
+
+
+
+        var aldarApp = angular.module('aldarApp', ['ngRoute', 'ngResource', 'ui.bootstrap']);
+
+        aldarApp.config(function ($routeProvider) {
+
+            $routeProvider.when('/home', { templateUrl: './views/home.html' });
+            $routeProvider.when('/about', { templateUrl: './views/about.html' });
+            $routeProvider.when('/courses', { templateUrl: './views/courses.html' });
+            $routeProvider.when('/newsandevents', { templateUrl: './views/newsandevents.html' });
+            $routeProvider.when('/registration', { templateUrl: './views/registration.html' });
+            $routeProvider.when('/dashboard', { templateUrl: './views/dashboard.html' });
+            $routeProvider.when('/courseview', { templateUrl: './views/courseview.html' });
+            $routeProvider.when('/sprofile', { templateUrl: './views/sprofile.html' });
+            $routeProvider.when('/tprofile', { templateUrl: './views/tprofile.html' });
+            $routeProvider.when('/editprofile', { templateUrl: './views/editprofile.html' });
+            $routeProvider.when('/addteacher', { templateUrl: './views/addteacher.html' });
+            $routeProvider.when('/addcourse', { templateUrl: './views/addcourse.html' });
+            $routeProvider.when('/edittprofile', { templateUrl: './views/edittprofile.html' });
+            $routeProvider.when('/forgot', { templateUrl: './views/forgot.html' });
+            $routeProvider.when('/quiz', { templateUrl: './views/quiz.html' });
+            $routeProvider.when('/addquestion', { templateUrl: './views/addquestion.html' });
+
+            $routeProvider.otherwise({ redirectTo: '/home' });
+        });
+
+
+
+        aldarApp.controller('mainCtrl', function ($scope, $http, $location) {
+
+
+            $scope.contactUs = function (customer) {
+                console.log(customer);
+                $http.post('api/user/contactus', customer).success(function (data) {
+                    $scope.alerts.push({ type: 'success', msg: data });
+
+                }).error(function (data) {
+                    $scope.alerts.push({ type: 'danger', msg: data.Message });
+                });
+            }
+
+
+
+            $scope.alerts = [];
+
+            $scope.addAlert = function () {
+                $scope.alerts.push({ msg: 'Another alert!' });
+            };
+
+            $scope.closeAlert = function (index) {
+                $scope.alerts.splice(index, 1);
+            };
+
+            $scope.gotoContactUs = function () {
+                $location.path('/contactus');
+            }
+        });
+
+        function collapser() {
+            if ($("")) {
+
+            }
+        }
+
+        function onNavLiClick() {
+            if ($("#btnNavCollapser").is(":visible") == true) {
+                $("#btnNavCollapser").click(); //bootstrap 2.x
+                $(".navbar-toggle").click(); //bootstrap 3.x by Richard
+            }
+        }
+
+        function toggleQuiz() {
+
+            if (document.getElementById('tquiz').innerHTML == 'Open') {
+                document.getElementById('tquiz').innerHTML = ' Close';
+                document.getElementById('tquiz').setAttribute('class', 'btn btn-info');
+            }
+            else {
+                document.getElementById('tquiz').innerHTML = 'Open';
+                document.getElementById('tquiz').setAttribute('class', 'btn btn-success');
+            }
+
+
+        }
+        function addComment() {
+            var comment = '<div id="commentView" class="mrgnbtm10"><div class="panel panel-primary">' +
+                '<div class="panel-heading"><h4 id="ownerName">User Name <span id="lastModifiedOn"class="small">12/12/12</span>' +
+                '<span id="deleteComment" class="glyphicon glyphicon-remove fl_right"></span></h4></div><div class="panel-body small">' +
+                '<div id="Commenttitle"><h4>' + document.getElementById("newCommentTitle").value +
+                '</h4></div><div id="CommentDesc"><p>' + document.getElementById("newCommentBody").value +
+                '</p></div></div></div></div>';
+
+            var content = document.createTextNode(comment);
+
+            document.getElementById("oldcomments").innerHTML += comment;
+            document.getElementById("newCommentTitle").value = '';
+            document.getElementById("newCommentBody").value = '';
+
+        }
+
+
+        $("[name='my-checkbox']").bootstrapSwitch();
+    </script>
+</head>
+<body ng-controller="mainCtrl">
+    <nav class="nav navbar navbar-inverse">
+
+        <div class="container-fluid">
+            <div class="navbar-header ">
+                <button type="button" id="btnNavCollapser" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMenu">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navheader">
+                    <img src="/contents/images/OnlineInstitutePortalLogo.png" width="80" height="80"
+                         alt="Online Institute Portal Logo" style=" margin-right: 15px;" />
+                    <a class="navbar-brand" href="#/home">Online Institute Portal</a>
+                </div>
+
+            </div>
+
+            <div class="navbar-collapse collapse" id="navMenu" style="float:right">
+                <ul class="nav navbar-nav">
+                    <li onclick="onNavLiClick()"><a href="#/home">Home</a></li>
+                    <li onclick="onNavLiClick()"><a href="#/about">About</a></li>
+                    <li onclick="onNavLiClick()"><a href="#/courses">Courses</a></li>
+                    <li onclick="onNavLiClick()"><a href="#/newsandevents">News & Events</a></li>
+
+
+
+                </ul>
+
+                <form class="navbar-form fl_right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Type keyword to search" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="well-lg">
+        <div class="col-md-9">
+            <div style=" width:100%;height:initial;" ng-view>
+                <!--ng-view starts-->
+
+                <div>
+
+                    <div ng-view class="container" style=" text-align: center; min-height:500px;">
+                    </div>
+
+                </div>
+
+
+            </div><!--ng-view end-->
+        </div>
+        <div class="col-md-3 well panel panel-primary ">
+
+            <div class="panel-heading" style="">
+                <img src="/contents/images/OnlineInstitutePortalLogo.png" style="width:50px;height:50px">
+                <h5 class="panel-title">Student Name</h5>
+            </div>
+            <div class="panel-body">
+                <a href="#/sprofile">Profile</a> | <a href="#/home">Log Out</a> | <a href="#/dashboard">DashBoard</a>
+                <!---->
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-info  ">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Notifications <span class="badge">3</span></a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                <div class="mrgnbtm10">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title" style="width:100%">Notification Title <span class="glyphicon glyphicon-remove fl_right"></span></h3>
+                                        </div>
+                                        <div class="panel-body small">
+                                            Notifiaction Body
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mrgnbtm10">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title" style="width:100%">Notification Title <span class="glyphicon glyphicon-remove fl_right"></span></h3>
+                                        </div>
+                                        <div class="panel-body small">
+                                            Notifiaction Body
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!---->
+                <div>
+                    <h4>My Courses</h4>
+                    <ul style="list-style:none">
+
+                        <li><a href="#/courseview">course n</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <!--Teacher-->
+
+            <div class="panel-heading" style="">
+                <img src="/contents/images/OnlineInstitutePortalLogo.png" style="width:50px;height:50px">
+                <h5 class="panel-title">Teacher Name</h5>
+            </div>
+            <div class="panel-body">
+                <a href="#/tprofile">Profile</a> | <a href="#/home">Log Out</a> | <a href="#/dashboard">DashBoard</a>
+                <!---->
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-info  ">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#tcollapse1">Notifications <span class="badge">3</span></a>
+                            </h4>
+                        </div>
+                        <div id="tcollapse1" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                <div class="mrgnbtm10">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title" style="width:100%">Notification Title <span class="glyphicon glyphicon-remove fl_right"></span></h3>
+                                        </div>
+                                        <div class="panel-body small">
+                                            Notifiaction Body
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mrgnbtm10">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title" style="width:100%">Notification Title <span class="glyphicon glyphicon-remove fl_right"></span></h3>
+                                        </div>
+                                        <div class="panel-body small">
+                                            Notifiaction Body
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!---->
+
+                <div class="row">
+                    <a href="#/quiz" id="quiz" class="btn btn-success"><span class="glyphicon glyphicon-plus"> </span> Quiz</a>
+                </div>
+            </div>
+            <!--Teacher code end-->
+            <!--Admin test Code-->
+            <div class="panel-heading" style="">
+                <img src="/contents/images/OnlineInstitutePortalLogo.png" style="width:50px;height:50px">
+                <h5 class="panel-title">Admin Name</h5>
+            </div>
+            <div class="panel-body">
+                <a href="#/sprofile">Profile</a> | <a href="#/home">Log Out</a>
+                <!---->
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-info  ">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#acollapse1">Notifications <span class="badge">3</span></a>
+                            </h4>
+                        </div>
+                        <div id="acollapse1" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                <div class="mrgnbtm10">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title" style="width:100%">Notification Title <span class="glyphicon glyphicon-remove fl_right"></span></h3>
+                                        </div>
+                                        <div class="panel-body small">
+                                            Notifiaction Body
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mrgnbtm10">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title" style="width:100%">Notification Title <span class="glyphicon glyphicon-remove fl_right"></span></h3>
+                                        </div>
+                                        <div class="panel-body small">
+                                            Notifiaction Body
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!---->
+                <div class="row ">
+
+                    <a href="#/addteacher" id="addTeacher" class="btn btn-success"><span class="glyphicon glyphicon-plus"> </span> Add Teacher</a>
+                    <a href="#/addcourse" id="addCourse" class="btn btn-success"><span class="glyphicon glyphicon-plus"> </span> Add Course</a>
+
+                </div>
+            </div>
+            <div>
+                <h4><span><a href="#/forgot#fp">Forgot Password</a></span></h4>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Footer-->
+
+    <footer class="well well-sm" style="clear:both;text-align:center;margin-bottom:0px">
+
+        <p>Copyright @ Online Institute Portal  - 2015 </p>
+    </footer>
+    <!--Footer Closed-->
+
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+﻿<div class="row">
+    <div id="course_page_title " class="well well-sm">
+        <h1>Course # 1</h1>
+    </div>
+    <div>
+        <div id="reletive_videos" class="col-md-4 well">
+
+            <div>
+                <a href="#/courseview"><h3><span class="glyphicon glyphicon-film"></span> CS506 Lecture 01</h3></a>
+            </div>
+            <div>
+                <a href="#/courseview"><h3><span class="glyphicon glyphicon-film"></span> CS506 Lecture 02</h3></a>
+            </div>
+            <div>
+                <a href="#/courseview"><h3><span class="glyphicon glyphicon-film"></span> CS506 Lecture 03</h3></a>
+            </div>
+            <div>
+                <a href="#/courseview"><h3><span class="glyphicon glyphicon-film"></span> CS506 Lecture 04</h3></a>
+            </div>
+            <div>
+                <a href="#/courseview"><h3><span class="glyphicon glyphicon-film"></span> CS506 Lecture nn</h3></a>
+            </div>
+
+        </div>
+        <div id="course_video_pane" class="col-md-8 ">
+            <div>
+                <h2 id="video_title">CS506 Web Design and Development - Lecture 04 </h2>
+                <div id="video_view">
+                    <video src="/videos/CS506_Lecture04.mp4" class="well" width="100%" controls>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div id="forum_div">
+                <p id="video_description"> Viewer's </p>
+                <div id="allcomments">
+                    <div id="oldcomments">
+
+                        <div id="commentView" class="mrgnbtm10">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h4 id="ownerName">
+                                        User Name <span id="lastModifiedOn" class="small">12/12/12</span>
+                                        <span id="deleteComment" class="glyphicon glyphicon-remove fl_right"></span>
+                                    </h4>
+                                </div>
+                                <div class="panel-body small">
+                                    <div id="Commenttitle">
+                                        <h4> Comment Title</h4>
+                                    </div>
+                                    <div id="CommentDesc">
+                                        <p>Comment Description</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div id="newcomment" class="well">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input id="newCommentTitle" class="form-control" type="text" placeholder="Title" />
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="newCommentBody" class="form-control" placeholder="Your Comment Here" ></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-success fl_right" onclick="addComment()"><span class="glyphicon glyphicon-comment"></span> Comment</button>
+                                </div>
+                            </fieldset>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

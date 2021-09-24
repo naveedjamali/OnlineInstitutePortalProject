@@ -1,0 +1,31 @@
+﻿<div class="row">
+    <form  class="form-horizontal" style="max-width:450px; margin:auto">
+        <fieldset id ="addCourseForm">
+            <legend>Add / Modify Course</legend>
+            <div class="form-group">
+                <label for="coursetitle" class="control-label">Course Title</label>
+                <input id="coursetitle" class="form-control" type="text" placeholder="Course Title" required />
+            </div>
+
+            <div class="form-group">
+                <label for="teacherName" class="control-label">Teacher</label>
+                <input id="teacherName" class="form-control" type="text" placeholder="Teacher Name"/>
+
+            </div>
+            <div class="form-group well">
+                <label for="active">Active</label>
+                <input id="active " class="fl_right " type="checkbox" checked>
+            </div>
+            <div class="form-group">
+                <label for="description" class="control-label">Description</label>
+                <textarea id="description" class="form-control" placeholder="Description" style="resize:none;min-height:100px" required></textarea>
+            </div>
+            <div class="form-group" style="padding:19px">
+                <button id="savebtn" type="submit" class="btn btn-success">Save</button>
+                <button type="reset" class="btn btn-warning fl_right">Reset</button>
+            </div>
+
+        </fieldset>
+       
+    </form>
+</div>

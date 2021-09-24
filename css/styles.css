@@ -1,0 +1,69 @@
+﻿.infodiv {
+    display:-webkit-box;
+}
+.itemlabel{
+    width:141px;
+}
+.itemValue{
+
+}
+
+
+.course_single{
+    display:-moz-box;width:100%;
+}
+.course_logo{
+     border:1px solid;
+}
+.single_course_div
+{
+    border:1px solid;width:100%;
+}
+.course_title{
+     border:1px solid;
+}
+.course_desc{
+     border:1px solid;
+}
+.course_rating{
+     border:1px solid;
+}
+.reletive_videos{
+
+    border:1px solid blue;
+    min-height:600px;
+
+}
+.course_video_pane{
+     border:1px solid blue;
+     min-height:600px;
+}
+.img1{
+    display:table;
+    margin:auto;
+    padding-top:18px;
+}
+.benifits_div{
+    
+  
+    min-height:275px;
+}
+.mrgnbtm10{
+    margin-bottom:10px;
+}
+.fl_right{
+    float:right;
+}
+.navheader {
+    display: flex;
+}
+.ans{
+    margin-top:15px !important;
+    margin-right:15px !important;
+}
+.flex{
+    display:-webkit-box;
+}
+.q{
+    height:90px !important;
+}

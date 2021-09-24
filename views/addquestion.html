@@ -1,0 +1,61 @@
+﻿<div class="row">
+    <div id="CourseTitle">
+        <h1 id="myHeader"> Course Title | Quiz</h1>
+        <hr />
+    </div>
+    <div id="questionDiv" class="row">
+
+        <form class="form-horizontal" style="max-width:500px;margin:auto">
+            <fieldset>
+
+                <div class="form-group col-md-11" >
+
+                    <label for="qNumber">Question:</label>
+                    <input class="form-control q"  type="text" id="qNumber" placeholder="Type Question Here" />
+
+                </div>
+                <div class="form-group col-lg-10" id="answerdiv" style="clear:both">
+
+                    <div class="form-group ">
+                        <label for="a1">Add Answer: </label>
+                        <span class="text-muted fl_right">also click on correct option to set it as correct</span>
+                        <div class="flex">
+                            <input class="ans" type="radio" name="answer" id="r1" value="a1" />
+                            <input class="form-control" id="a1" type="text" name="answer" placeholder="1st Option " />
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class="flex">
+                            <input class="ans" type="radio" name="answer" id="r2" value="a2" />
+                            <input class="form-control" id="a2" type="text" name="answer" placeholder="2nd Option " />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="flex">
+                            <input class="ans" type="radio" name="answer" id="r3" value="a3" />
+                            <input class="form-control" id="a3" type="text" name="answer" placeholder="3rd Option " />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="flex">
+                            <input class="ans" type="radio" name="answer" id="r4" value="a4" />
+                            <input class="form-control" id="a4" type="text" name="answer" placeholder="4th  Option " />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group col-lg-10" style="clear:both">
+                    <button type="submit" class="btn btn-success">Save</button><button type="reset" class="btn btn-warning fl_right">Reset</button>
+                </div>
+
+
+            </fieldset>
+        </form>
+
+
+
+    </div>
+</div>
